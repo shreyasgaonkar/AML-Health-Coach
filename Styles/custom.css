@@ -1,0 +1,126 @@
+.aml-logo {
+  position: relative;
+  width: 20%;
+  /*right: 0px;*/
+  padding-top: 50px;
+  float: right; }
+
+.img-thumbnail {
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.75); }
+
+.post-header {
+  background-color: #E1E0E9; }
+
+.post-header-inner, .blog-inner {
+  padding: 0; }
+
+.blog {
+  background-color: rgba(90, 187, 201, 0.75);
+  text-align: center;
+  padding: 40px 0; }
+
+.blog-text {
+  text-align: justify;
+  padding: 20px 0 0 10px; }
+  .blog-text small {
+    color: inherit; }
+
+.line-behind-text {
+  text-align: center; }
+
+.line-behind-text h2 {
+  /*color: #808080;*/
+  display: inline-block;
+  /*font-family: "Oswald", sans-serif;*/
+  font-weight: 500;
+  padding: 0 10px;
+  position: relative;
+  text-transform: uppercase; }
+
+.blog-element {
+  padding: 20px 0; }
+
+.read-more {
+  background-color: #04395E;
+  opacity: 0.80;
+  padding: 10px;
+  border-radius: 5px;
+  color: white; }
+
+.read-more:hover {
+  text-decoration: none;
+  color: white;
+  opacity: 1.0; }
+
+.newsletter {
+  background-color: rgba(78, 212, 95, 0.9);
+  padding: 40px 0; }
+
+.form-display {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px 15px 5px 15px;
+  border: 3px solid white;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.75);
+  display: flex;
+  margin: 50px 0; }
+  @media (max-width: 590px) {
+    .form-display {
+      display: block; } }
+
+.mc-field-group {
+  position: relative;
+  flex: 2; }
+  @media (max-width: 590px) {
+    .mc-field-group:first-child, .mc-field-group:last-child {
+      border-right: none;
+      border-bottom: 4px solid white; } }
+
+input {
+  position: relative;
+  border: 0;
+  background: pink;
+  padding: 0;
+  display: block;
+  height: 60px;
+  width: 100%;
+  padding: 0 10px;
+  font-size: 18px; }
+  input[type="email"] {
+    margin: 0; }
+  input:focus {
+    outline: red; }
+  input[type="submit"] {
+    flex: 1;
+    background: white;
+    color: #ba9e44;
+    font-size: 24px;
+    padding: 0 15px; }
+
+label {
+  position: absolute;
+  z-index: 2;
+  font-size: 12px;
+  left: 10px;
+  top: 5px;
+  border-radius: 0; }
+
+@media (max-width: 860px) {
+  .aml-logo {
+    display: none; } }
+
+@media (max-width: 1200px) and (min-width: 861px) {
+  .aml-logo {
+    padding: 100px 0; } }
+
+@media (min-width: 1200px) {
+  .aml-logo {
+    padding: 75px 0; } }
+
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+    margin: 0 auto; }
+  .post-header-inner {
+    padding: 10px; } }
+
+/*# sourceMappingURL=custom.css.map */

@@ -1,0 +1,27 @@
+{
+  "name": "AML",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.0",
+    "refills": "^0.1.0",
+    "bitters": "^1.2.0"
+  },
+  "devDependencies": {
+    "bourbon": "^4.2.6",
+    "neat": "^1.7.2",
+    "refills": "^0.1.0"
+  }
+}
