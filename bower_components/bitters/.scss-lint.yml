@@ -1,6 +1,8 @@
-# Up-to-date with SCSS-Lint v0.43.2
+scss_files: "**/*.scss"
 
-scss_files: "app/assets/stylesheets/**/*.scss"
+exclude: "node_modules/**"
+
+severity: warning
 
 linters:
   BangFormat:
@@ -107,6 +109,10 @@ linters:
   PlaceholderInExtend:
     enabled: true
 
+  PrivateNamingConvention:
+    enabled: false
+    prefix: _
+
   PropertyCount:
     enabled: false
 
@@ -173,6 +179,10 @@ linters:
 
   SpaceAfterPropertyName:
     enabled: true
+
+  SpaceAfterVariableColon:
+    enabled: true
+    style: one_space
 
   SpaceAfterVariableName:
     enabled: true
