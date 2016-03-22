@@ -1,153 +1,74 @@
-
 module.exports = function(grunt) {
 
     // Project configuration.
     grunt.initConfig({
-
-        concat: {
-            js: {
-                src: ['Scripts/nav.js', 'Scripts/function.js'],
-                dest: 'build/js/scripts.js',
-            },
-            css: {
-                src: ['Styles/1.css', 'Styles/custom.css', 'Styles/scss.css'],
-                dest: 'build/css/styles.css',
-            },
-            sass: {
-                src: ['Styles/nav.scss', 'Styles/device.scss',  'Styles/footer.scss'],
-                dest: 'Styles/scss.scss',
-            }
-        },
-
-        watch: {
-            options: {
-                livereload: true
-            },
-            js: {
-                files: ['Scripts/**/*.js'],
-                tasks: ['concat:js', 'uglify'],
-            },
-            css: {
-                files: ['Styles/**/*.css'],
-                tasks: ['concat:css', 'cssmin'],
-            },
-            sass: {
-                files: ['Styles/**/*.scss'],
-                tasks: ['concat:sass', 'sass'],
-            },
-            html: {
-                files: ['default.html'],
-                tasks: ['htmlmin'],
-            },
-        },
-
+        pkg: grunt.file.readJSON('package.json'),
         uglify: {
-            my_target: {
-                files: {
-                    'build/js/min.js': ['build/js/scripts.js'],
-                },
-            },
+            main: {
+                src: 'js/<%= pkg.name %>.js',
+                dest: 'js/<%= pkg.name %>.min.js'
+            }
         },
-
-        cssmin: {
-            options: {
-                shorthandCompacting: false,
-                roundingPrecision: -1
-            },
-            target: {
+        less: {
+            expanded: {
+                options: {
+                    paths: ["css"]
+                },
                 files: {
-                    'build/css/min.css': ['build/css/styles.css'],
-                },
-            },
-        },
-
-        htmlmin: {                                     // Task
-            dist: {                                      // Target
-                options: {                                 // Target options
-                    removeComments: true,
-                    collapseWhitespace: true
-                },
-                files: {                                   // Dictionary of files
-                    'index.html': 'default.html',     // 'destination': 'source'
-                    //'dist/contact.html': 'src/contact.html'
+                    "css/<%= pkg.name %>.css": "less/<%= pkg.name %>.less"
                 }
             },
-            dev: {                                       // Another target
-                files: {
-                    //'index.html': 'default.html',
-                    //'dist/contact.html': 'src/contact.html'
+            minified: {
+                options: {
+                    paths: ["css"],
+                    cleancss: true
                 },
-            },
+                files: {
+                    "css/<%= pkg.name %>.min.css": "less/<%= pkg.name %>.less"
+                }
+            }
         },
-
-        sass: {
-            options: {
-                sourceMap: true
-            },
+        banner: '/*!\n' +
+            ' * <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+            ' * Copyright 2013-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+            ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
+            ' */\n',
+        usebanner: {
             dist: {
+                options: {
+                    position: 'top',
+                    banner: '<%= banner %>'
+                },
                 files: {
-                    'Styles/scss.css': 'Styles/scss.scss',
-                    'Styles/custom.css': 'Styles/custom.scss'
-                    //'Styles/scss.css': 'Styles/scss.scss',
+                    src: ['css/<%= pkg.name %>.css', 'css/<%= pkg.name %>.min.css', 'js/<%= pkg.name %>.min.js']
                 }
             }
         },
-
-        newer: {
-            options: {
-                override: function(detail, include) {
-                    if (detail.task === 'less') {
-                        checkForModifiedImports(detail.path, detail.time, include);
-                    } else {
-                        include(false);
-                    }
+        watch: {
+            scripts: {
+                files: ['js/<%= pkg.name %>.js'],
+                tasks: ['uglify'],
+                options: {
+                    spawn: false,
+                },
+            },
+            less: {
+                files: ['less/*.less'],
+                tasks: ['less'],
+                options: {
+                    spawn: false,
                 }
-            }
+            },
         },
+    });
 
+    // Load the plugins.
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-banner');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
+    // Default task(s).
+    grunt.registerTask('default', ['uglify', 'less', 'usebanner']);
 
-
-        /*
-        sass: {                              // Task
-        dist: {                            // Target
-        options: {                       // Target options
-        style: 'expanded'
-    },
-    files: {                         // Dictionary of files
-    'Styles/*.css': 'Styles/*.scss',       // 'destination': 'source'
-    // 'widgets.css': 'widgets.scss'
-}
-}
-}
-*/
-/*
-"connect": {
-keepalive: {
-options: {
-port: 1019,
-host: "localhost",
-keepalive: true,
-//open: "http://localhost:1019/index.html"
-}
-}
-}
-*/
-
-});
-
-//grunt.loadNpmTasks('grunt-contrib-sass');
-
-grunt.loadNpmTasks('grunt-newer');
-grunt.loadNpmTasks('grunt-contrib-concat');
-grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-contrib-cssmin');
-grunt.loadNpmTasks('grunt-contrib-htmlmin');
-//grunt.loadNpmTasks('grunt-express');
-//grunt.loadNpmTasks('grunt-contrib-connect');
-require('load-grunt-tasks')(grunt);
-grunt.loadNpmTasks('grunt-contrib-watch');
-grunt.registerTask('default', [ 'newer:uglify', 'newer:cssmin', 'newer:htmlmin', 'newer:sass', 'newer:concat', 'watch']);
-
-//grunt.registerTask('server', [ 'express', 'watch']);
 };
