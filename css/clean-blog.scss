@@ -5,7 +5,14 @@
 */
 @import "bourbon.scss";
 //@import "type-systems.scss";
+html{
+    text-align: justify;
+}
 
+
+a{
+    text-decoration: none !important;
+}
 
 body {
     font-family: 'Lora', 'Times New Roman', serif;
@@ -16,6 +23,11 @@ p {
     line-height: 1.5;
     margin: 30px 0;
 }
+
+p::selection{
+    background: rgba(#E43F6F, 0.75);
+}
+
 p a {
     text-decoration: underline;
 }
@@ -41,6 +53,8 @@ a img:focus {
     cursor: pointer;
 }
 blockquote {
+    padding: 20px;
+    // line-height: 2.5em;
     color: #808080;
     font-style: italic;
 }
@@ -216,6 +230,10 @@ hr.small {
         font-size: 30px;
     }
 }
+.post-preview{
+    text-align: left;
+}
+
 .post-preview > a {
     color: #404040;
 }
@@ -270,6 +288,7 @@ hr.small {
     border-bottom-left-radius: 5px;
 }
 footer {
+    background-color: rgba(#DEDEDE, 0.50);
     padding: 50px 0 65px;
 }
 footer .list-inline {
@@ -551,6 +570,7 @@ $color5: #005FA1;
 
 
 .newsletter{
+    margin-top: 60px;
     background-color: rgba($color5,0.9);
     padding: 40px 0;
 }
@@ -587,7 +607,6 @@ $color5: #005FA1;
 input{
     position: relative;
     border: 1px solid rgba(black, 0.75);
-    //background: pink;
     padding: 0;
     display: block;
     height:60px;
@@ -611,6 +630,7 @@ input{
         padding: 0 15px;
         font-family: Helvetica;
         letter-spacing: 0.5px;
+        text-transform: uppercase;
     }
     &[type="submit"]:hover{
         background: rgba($color4, 1.0);
@@ -676,12 +696,12 @@ label{
 }
 
 .blog-img{
+    padding: 10px 20px 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background: cover;
-    padding: 40px 20px 20px 0;
-    //box-shadow: 1px 0px 10px 1px;
+    // box-shadow: 1px 0px 10px 1px;
 }
 
 .dropdown-menu{
@@ -708,7 +728,7 @@ blockquote{
 }
 
 .aml-aboutme{
-    padding: 20px;
+    padding-right: 20px;
 }
 
 @media (max-width: 768px){
@@ -757,3 +777,105 @@ blockquote{
 .small-font{
     font-size: 16px;
 }
+
+.blog-sample{
+    padding: 10px 0;
+
+}
+
+
+.green-underline{
+    border-bottom: 1px dashed green;
+    cursor: pointer;
+
+}
+
+.text-behind-line{
+    margin: 10px 0;
+    font-size: 20px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 10px 1px rgba(black, 0.3);
+
+    &:hover{
+        cursor: default;
+    }
+}
+
+.blog-hr{
+    padding: 20px 0;
+}
+
+.recipes{
+    padding-bottom: 40px;
+}
+
+.recipes-row{
+    padding: 20px 0;
+}
+
+@media (max-width: 768px){
+    .recipes-row{
+        padding: 0px 0;
+    }
+}
+
+.recipes-img-hover{
+}
+div.wrapper{
+    float:left; /* important */
+    position:relative; /* important(so we can absolutely position the description div */
+}
+div.description, .recipes-img-hover{
+    position:absolute; /* absolute position (so we can position it where we want)*/
+    bottom: 0px;
+    left:0px;
+    width:100%;
+    /* styling bellow */
+    background-color:black;
+    font-family: 'tahoma';
+    font-size:15px;
+    color:white;
+    opacity:0.6; /* transparency */
+    filter:alpha(opacity=60); /* IE transparency */
+}
+p.description_content{
+    padding:10px;
+    margin:0px;
+}
+.recipes-img{
+    display:inline-block;
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    box-shadow: 0px 0px 20px 1px rgba(black, 0.25);
+    // border: 5px solid white;
+}
+
+.continue-reading{
+    padding: 10px;
+    background-color: #93CB68;
+    color: white;
+    border-radius: 10px;
+
+    &:hover {
+        color: white;
+        background-color: rgba(#58793E, 0.85);
+    }
+}
+
+// .site-heading {
+//     h1{
+//         color: rgba(black, 0.75);
+//     }
+//     .subheading{
+//         color: rgba(black, 0.90);
+//     }
+// }
+
+// .site-heading {
+//     h1, .subheading{
+//     padding: 5px;
+//     display: inline-block;
+//     background-color: rgba(black, 0.30);
+//     }
+// }
