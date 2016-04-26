@@ -4,6 +4,12 @@
 * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
 */
 @import "bourbon.scss";
+@import "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";
+$pink: #E43F6F;
+$green: #93CB68;
+$blue: #005FA1;
+$orange: rgb(240, 173, 78);
+
 //@import "type-systems.scss";
 html{
     text-align: justify;
@@ -25,7 +31,8 @@ p {
 }
 
 p::selection{
-    background: rgba(#E43F6F, 0.75);
+    background: rgba(pink, 0.75);
+    color: black;
 }
 
 p a {
@@ -53,10 +60,33 @@ a img:focus {
     cursor: pointer;
 }
 blockquote {
-    padding: 20px;
+    padding: 10px 20px 40px 20px;
+    // margin: 5px 0;
     // line-height: 2.5em;
     color: #808080;
     font-style: italic;
+
+    i{
+        // font-weight: bold;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 42px;
+        letter-spacing: 3px;
+        color:$blue;
+    }
+
+
+
+
+    @media (max-width: 768px) {
+
+        i{
+            font-size: 18px;
+            line-height: 30px;
+            letter-spacing: 3px;
+        }
+    }
+
 }
 hr.small {
     max-width: 100px;
@@ -151,6 +181,7 @@ hr.small {
     }
 }
 .intro-header {
+    // min-height: 25vh;
     background-color: #808080;
     background: no-repeat center center;
     background-attachment: scroll;
@@ -366,7 +397,7 @@ form .row:first-child .floating-label-form-group {
 .btn-default:hover,
 .btn-default:focus {
     background-color: #0085a1;
-    border: 1px solid #0085a1;
+    //border: 1px solid #0085a1;
     color: white;
 }
 .pager {
@@ -720,16 +751,24 @@ center {
         padding: 30px 0;
     }
 }
-
-blockquote{
-    i{
-        font-size:24px;
+@media (max-width: 500px){
+    .aml-aboutme{
+        width: 100%;
+    }
+}
+@media (min-width: 768px){
+    .aml-aboutme{
+        text-align: center;
+        max-width: 100%;
+        padding: 10px 20px 10px 0;
+        max-height:90vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
-.aml-aboutme{
-    padding-right: 20px;
-}
 
 @media (max-width: 768px){
     .aboutme{
@@ -740,8 +779,8 @@ blockquote{
 
     .aml-aboutme{
         text-align: center;
-        width: 100%;
-        padding: 20px;
+        max-width: 100%;
+        padding: 10px 20px 20px 0;
         max-height:90vh;
         display: flex;
         align-items: center;
@@ -817,6 +856,11 @@ blockquote{
     .recipes-row{
         padding: 0px 0;
     }
+    .blog-sample{
+        h3{
+            font-size: 22px;
+        }
+    }
 }
 
 .recipes-img-hover{
@@ -862,6 +906,33 @@ p.description_content{
         background-color: rgba(#58793E, 0.85);
     }
 }
+
+.index-img{
+    padding: 30px 10px 10px 0px;
+}
+
+@media (max-width: 320px){
+    .email{
+        font-size: 14px;
+    }
+}
+@media (min-width: 321px) and (max-width: 768px){
+    .email{
+        font-size: 18px;
+    }
+
+}
+
+.navbar-toggle:visited{
+    background: white;
+}
+
+@media(min-width: 1400px) {
+    blockquote {
+        margin: 30px 0;
+    }
+}
+
 
 // .site-heading {
 //     h1{
