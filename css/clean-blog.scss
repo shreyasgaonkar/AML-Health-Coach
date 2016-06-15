@@ -735,6 +735,12 @@ label{
     // box-shadow: 1px 0px 10px 1px;
 }
 
+
+    .blog-img{
+        max-width: 100%;
+    }
+
+
 .dropdown-menu{
     li > a{
         color: black !important;
@@ -933,6 +939,140 @@ p.description_content{
     }
 }
 
+
+
+
+/* Cookie */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.signup-modal {
+    display: none;
+}
+
+
+.signup-modal.is-open {
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    display: block;
+}
+
+.signup-modal--overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.signup-modal--card {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    max-width: 1000px;
+    background: $color3;
+    /*background: white;*/
+    box-shadow: 0px 3px 30px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 50px 50px 0px 50px;
+    text-align: center;
+    -webkit-animation: hello 0.5s linear;
+    animation: hello 0.5s linear;
+}
+
+@media (max-width:763px) {
+    .signup-modal--card {
+        top: 50%;
+        //bottom: 10%;
+        max-height: 80vh;
+        overflow: auto;
+        width: 70%;
+    }
+}
+
+
+.signup-modal h3 {
+    margin: 0;
+    padding: 0;
+    color: #34b881;
+}
+
+.signup-modal p {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 30px;
+}
+
+.signup-modal input {
+    border: none;
+    background: #eee;
+    padding: 10px 20px;
+    outline: none;
+}
+
+.signup-modal input[type="submit"] {
+    background: #34b881;
+    color: white;
+}
+
+.signup-modal input:focus {
+    box-shadow: inset 0px 0px 0px 2px #34b881;
+}
+
+.signup-modal .close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #BBB;
+    cursor: pointer;
+}
+
+.signup-modal .close:hover {
+    //color: #666;
+    color: #FFF;
+}
+
+
+.close-modal {
+    letter-spacing: 1px;
+    font-size: 12px;
+    color: #BBB;
+    text-decoration: none;
+}
+
+
+.close-modal:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.well {
+    padding: 20px 30px;
+    h5 {
+        font-weight: 400;
+    }
+    img{
+        max-width: 100%;
+        margin: 20px 0;
+    }
+
+}
 
 // .site-heading {
 //     h1{
