@@ -1074,6 +1074,15 @@ p.description_content{
 
 }
 
+.lightwidget-widget {
+  max-width: 70%;
+}
+
+@media(max-width: 500px) {
+  .lightwidget-widget {
+    max-width: 90%;
+  }
+}
 // .site-heading {
 //     h1{
 //         color: rgba(black, 0.75);
