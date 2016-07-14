@@ -1101,6 +1101,18 @@ p.description_content{
   }
 }
 
+.navbar-brand{
+  img{
+    background: rgba(white, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+
+    &:hover{
+      background: rgba(white, 0.25);
+    }
+  }
+}
+
 // .site-heading {
 //     h1{
 //         color: rgba(black, 0.75);
